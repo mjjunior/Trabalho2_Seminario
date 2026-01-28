@@ -1,120 +1,163 @@
-📺 TV 3.0 – Prova de Conceito (PoC)
+# 📺 TV 3.0 — Prova de Conceito (POC)
 
-Este projeto é uma Prova de Conceito (PoC) desenvolvida para o seminário da disciplina, com foco em TV 3.0, pensamento computacional e aplicações interativas baseadas em software.
+Este projeto é uma **Prova de Conceito (POC)** desenvolvida para a disciplina de **Seminário / Pensamento Computacional**, com o objetivo de simular conceitos da **TV 3.0**, integrando:
 
-A aplicação simula um servidor backend que disponibiliza informações e conteúdos para uma TV conectada, utilizando Python e FastAPI.
-Para simplificação do protótipo, o sistema utiliza um único vídeo, evitando complexidade desnecessária na entrega do trabalho.
+- Perfis de usuário
+- Contexto de uso da TV
+- Recomendação inteligente de conteúdo
+- Regras determinísticas + Machine Learning
+- API REST com FastAPI
+- Interface web simples simulando uma TV inteligente
 
-🧠 Objetivo do Projeto
+---
 
-Demonstrar o funcionamento de uma aplicação backend para TV 3.0
+## 🎯 Objetivo do Projeto
 
-Aplicar conceitos de:
+Demonstrar, de forma prática e didática, como tecnologias modernas podem ser aplicadas em um cenário de **TV inteligente**, explorando:
 
-APIs REST
+- Personalização de conteúdo
+- Uso de Inteligência Artificial para recomendação
+- Separação entre regras simbólicas e aprendizado de máquina
+- Comunicação entre backend (API) e frontend (interface web)
 
-Comunicação cliente-servidor
+O projeto **não tem foco comercial**, sendo exclusivamente educacional.
 
-Pensamento computacional
+---
 
-Prototipação de sistemas interativos
+## 🧠 Visão Geral da Arquitetura
 
-Servir como base conceitual para futuras expansões (personalização, proximidade, múltiplos conteúdos etc.)
+O sistema é dividido em quatro camadas principais:
 
-🛠️ Tecnologias Utilizadas
+- **Frontend**  
+  Interface web que simula a TV, exibindo o vídeo e as informações da IA.
 
-Python 3.10 ou superior
+- **Backend (FastAPI)**  
+  API responsável por fornecer perfis, contexto da TV e recomendações.
 
-FastAPI – framework para criação da API
+- **Módulo de IA**
+  - Regras simbólicas (idade, preferências, restrições)
+  - Modelo de Machine Learning (Decision Tree)
 
-Uvicorn – servidor ASGI
+- **Conteúdo Estático**
+  - Vídeo único servido localmente
+  - Arquivos JSON simulando dados
 
-Git/GitHub – versionamento do código
+---
 
-📋 Pré-requisitos
+## 🛠️ Tecnologias Utilizadas
 
-Antes de rodar o projeto, é necessário ter instalado:
+- **Python 3.10+**
+- **FastAPI**
+- **Uvicorn**
+- **Scikit-learn**
+- **Pandas**
+- **HTML, CSS e JavaScript**
+- **Git & GitHub**
 
-Python
+---
 
-Download: https://www.python.org/downloads/
+## 📂 Estrutura do Projeto
 
-Durante a instalação, marque a opção “Add Python to PATH”
-
-Git
-
-Download: https://git-scm.com/
-
-📁 Estrutura do Projeto (resumo)
+```text
 tv3-poc/
-├── main.py              # Arquivo principal da aplicação
-├── requirements.txt     # Dependências do projeto
-├── README.md            # Documentação do projeto
-├── venv/                # Ambiente virtual (não versionado)
-└── .gitignore
+│
+├── backend/
+│   ├── ia.py              # Lógica de decisão da IA
+│   ├── ia_ml.py           # Modelo de Machine Learning
+│   └── profile_manager.py # Gerenciamento de perfis
+│
+├── data/
+│   └── conteudo.json      # Dados simulados de conteúdo
+│
+├── frontend/
+│   └── index.html         # Interface da TV
+│
+├── static/
+│   └── video.mp4          # Vídeo único servido pela aplicação
+│
+├── main.py                # Arquivo principal da API
+├── requirements.txt       # Dependências do projeto
+├── .gitignore
+└── README.md
 
-🚀 Como Rodar o Projeto
+Como Funciona a Inteligência Artificial
+
+A decisão do conteúdo segue três camadas:
+
+1️⃣ Regras Simbólicas
+
+Crianças recebem prioridade para conteúdo infantil
+
+Preferências explícitas do usuário são respeitadas
+
+Restrições são aplicadas antes do ML
+
+2️⃣ Machine Learning
+
+Modelo: Decision Tree
+
+Entradas:
+
+Idade
+
+Gênero de conteúdo
+
+Saída:
+
+Tipo de conteúdo recomendado
+
+3️⃣ Fallback Seguro
+
+Caso algo falhe, a IA sempre retorna um conteúdo válido.
+
+🚀 Como Executar o Projeto
 1️⃣ Clonar o repositório
 git clone https://github.com/mjjunior/Trabalho2_Seminario.git
 cd Trabalho2_Seminario
 
 2️⃣ Criar o ambiente virtual
 
-No Windows:
+Windows
 
 python -m venv venv
 
 
-No Linux / macOS:
+Linux / macOS
 
 python3 -m venv venv
 
 3️⃣ Ativar o ambiente virtual
 
-Windows (PowerShell):
+Windows (PowerShell)
 
 venv\Scripts\Activate
 
 
-Linux / macOS:
+Linux / macOS
 
 source venv/bin/activate
 
 4️⃣ Instalar as dependências
 pip install -r requirements.txt
 
-5️⃣ Rodar a aplicação
+5️⃣ Executar a aplicação
 uvicorn main:app --reload
 
 
-Se tudo estiver correto, aparecerá algo como:
+Se tudo estiver correto, a seguinte mensagem será exibida no terminal:
 
 Uvicorn running on http://127.0.0.1:8000
 
 🌐 Como Acessar a Aplicação
-🔹 API principal
+
+Após iniciar o servidor:
+
+Aplicação (API):
 http://127.0.0.1:8000
 
-🔹 Documentação automática da API (Swagger)
+Documentação automática da API (Swagger):
 http://127.0.0.1:8000/docs
 
-
-Essa página permite:
-
-Ver todas as rotas disponíveis
-
-Testar requisições diretamente pelo navegador
-
-Entender os dados retornados pela API
-
-📌 Observações Importantes
-
-O projeto utiliza apenas um vídeo, de forma proposital, para:
-
-Simplificar a implementação
-
-Focar na arquitetura e nos conceitos
-
-O diretório venv/ não deve ser enviado para o GitHub
-
-Toda a lógica principal está concentrada no main.py
+Interface da TV (Frontend):
+Abra o arquivo frontend/index.html no navegador
+(ou sirva via Live Server / servidor simples)
