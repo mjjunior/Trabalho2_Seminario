@@ -67,7 +67,7 @@ class IAML:
     # --------------------------------------------------
     def recomendar(self, idade: int, genero: str):
 
-        # 🔐 Segurança: garante que o gênero exista no encoder
+        # Segurança: garante que o gênero exista no encoder
         if genero not in self.encoder_genero.classes_:
             genero = "noticias"
 
@@ -77,7 +77,7 @@ class IAML:
         previsao = self.encoder_conteudo.inverse_transform(pred)[0]
 
         # --------------------------------------------------
-        # Curadoria de conteúdo (regra + classificação)
+        # Sugestão conteúdo válido (regra + classificação)
         # --------------------------------------------------
         conteudos_validos = [
             c for c in self.conteudos
@@ -85,7 +85,7 @@ class IAML:
             and c["classificacao"] in ["livre", "10+", "12+"]
         ]
 
-        # Fallback seguro e explicável
+        # Fallback seguro 
         if not conteudos_validos:
             conteudos_validos = [
                 c for c in self.conteudos
@@ -104,6 +104,6 @@ class IAML:
 
 
 # --------------------------------------------------
-# Instância única da IA (singleton)
+# Instância única da IA 
 # --------------------------------------------------
 ia_ml = IAML()

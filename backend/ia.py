@@ -44,7 +44,7 @@ def decidir_conteudo(perfil: dict):
         classificacao = "Livre"
 
     # --------------------------------------------------
-    # DECISÃO FINAL via Machine Learning (simulada)
+    # DECISÃO FINAL via Machine Learning 
     # --------------------------------------------------
     ia_decisao = ia.recomendar(idade, genero_base)
 
