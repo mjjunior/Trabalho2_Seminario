@@ -130,7 +130,7 @@ python3 -m venv venv
 
 Windows (PowerShell)
 
-venv\Scripts\Activate
+.\venv\Scripts\Activate
 
 
 Linux / macOS
@@ -138,10 +138,12 @@ Linux / macOS
 source venv/bin/activate
 
 4️⃣ Instalar as dependências
-pip install -r requirements.txt
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 
 5️⃣ Executar a aplicação
-uvicorn main:app --reload
+
+ uvicorn backend.main:app --reload
 
 
 Se tudo estiver correto, a seguinte mensagem será exibida no terminal:
@@ -161,3 +163,5 @@ http://127.0.0.1:8000/docs
 Interface da TV (Frontend):
 Abra o arquivo frontend/index.html no navegador
 (ou sirva via Live Server / servidor simples)
+
+Para sair do modo venv basta rodar o seguinte comando : deactivate
