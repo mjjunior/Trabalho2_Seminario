@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>TV 3.0 - Prova de Conceito</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #020617;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #020617;
+            padding: 15px 30px;
+            border-bottom: 2px solid #38bdf8;
+        }
+
+        h1 {
+            color: #38bdf8;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+            background: black;
+        }
+
+        .info {
+            background: #020617;
+            border: 1px solid #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .info h2 {
+            color: #38bdf8;
+            margin-top: 0;
+        }
+
+        .info p {
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 16px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📺 TV 3.0 — Prova de Conceito</h1>
+</header>
+
+<div class="container">
+    <!-- ÁREA DA TV -->
+    <div>
+        <video id="tvVideo" controls autoplay muted>
+            <source id="videoSource" src="" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+    </div>
+
+    <!-- PAINEL DA IA -->
+    <div class="info">
+        <h2>🤖 IA Ativa</h2>
+
+        <p><strong>Usuário:</strong> <span id="usuario">---</span></p>
+        <p><strong>Gênero escolhido:</strong> <span id="genero">---</span></p>
+        <p><strong>Programa:</strong> <span id="titulo">---</span></p>
+        <p><strong>Classificação:</strong> <span id="classificacao">---</span></p>
+
+        <button onclick="carregarTV()">Atualizar recomendação</button>
+    </div>
+</div>
+
+<script>
+async function carregarTV() {
+    const response = await fetch("http://127.0.0.1:8000/tv/context/1");
+    const data = await response.json();
+
+    const conteudo = data.recomendacao.conteudo;
+
+    document.getElementById("usuario").textContent = data.usuario;
+    document.getElementById("genero").textContent = data.recomendacao.ia_decidiu_genero;
+    document.getElementById("titulo").textContent = conteudo.titulo;
+    document.getElementById("classificacao").textContent = conteudo.classificacao;
+
+    const video = document.getElementById("tvVideo");
+    const source = document.getElementById("videoSource");
+
+    source.src = conteudo.url_video;
+    video.load();
+    video.play();
+}
+
+// Carrega automaticamente ao abrir a TV
+carregarTV();
+</script>
+
+</body>
+</html>

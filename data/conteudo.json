@@ -1,0 +1,98 @@
+[
+  {
+    "content_id": "prog001",
+    "titulo": "Jornal Noturno",
+    "descricao": "Resumo das principais notícias do Brasil e do mundo.",
+    "genero": "noticias",
+    "subgenero": "telejornal",
+    "horario": "20:30",
+    "duracao_minutos": 60,
+    "classificacao": "livre",
+    "publico_alvo": "geral",
+    "idioma": "pt-BR",
+    "ao_vivo": true,
+    "palavras_chave": ["política", "economia", "clima", "brasil"],
+    "url_video": "/static/VID_20251214_092211335.mp4"
+  },
+
+  {
+    "content_id": "prog002",
+    "titulo": "Novela Amor Eterno",
+    "descricao": "Uma história de amor marcada por conflitos familiares.",
+    "genero": "romance",
+    "subgenero": "novela",
+    "horario": "18:00",
+    "duracao_minutos": 45,
+    "classificacao": "12+",
+    "publico_alvo": "adolescente_adulto",
+    "idioma": "pt-BR",
+    "ao_vivo": false,
+    "palavras_chave": ["romance", "drama", "família"],
+    "url_video": "/static/VID_20251214_092211335.mp4"
+  },
+
+  {
+    "content_id": "prog003",
+    "titulo": "Filme Aventura nas Estrelas",
+    "descricao": "Uma missão espacial que pode salvar a humanidade.",
+    "genero": "aventura",
+    "subgenero": "ficcao_cientifica",
+    "horario": "21:00",
+    "duracao_minutos": 120,
+    "classificacao": "14+",
+    "publico_alvo": "jovem_adulto",
+    "idioma": "pt-BR",
+    "ao_vivo": false,
+    "palavras_chave": ["aventura", "espaço", "ação"],
+    "url_video": "/static/VID_20251214_092211335.mp4"
+  },
+
+  {
+    "content_id": "prog004",
+    "titulo": "Documentário Vida Selvagem",
+    "descricao": "Exploração da vida animal em habitats naturais.",
+    "genero": "documentario",
+    "subgenero": "natureza",
+    "horario": "15:00",
+    "duracao_minutos": 50,
+    "classificacao": "livre",
+    "publico_alvo": "geral",
+    "idioma": "pt-BR",
+    "ao_vivo": false,
+    "palavras_chave": ["natureza", "animais", "educativo"],
+    "url_video": "/static/VID_20251214_092211335.mp4"
+  },
+
+  {
+    "content_id": "prog005",
+    "titulo": "Série Mistério na Cidade",
+    "descricao": "Uma investigação cheia de segredos e reviravoltas.",
+    "genero": "misterio",
+    "subgenero": "suspense",
+    "horario": "22:00",
+    "duracao_minutos": 50,
+    "classificacao": "16+",
+    "publico_alvo": "adulto",
+    "idioma": "pt-BR",
+    "ao_vivo": false,
+    "palavras_chave": ["mistério", "crime", "investigação"],
+    "url_video": "/static/VID_20251214_092211335.mp4"
+  },
+
+  {
+  "content_id": "prog006",
+  "titulo": "Desenhos Animados da Manhã",
+  "descricao": "Conteúdo educativo e recreativo para crianças.",
+  "genero": "desenhos",
+  "subgenero": "animacao",
+  "horario": "09:00",
+  "duracao_minutos": 30,
+  "classificacao": "livre",
+  "publico_alvo": "infantil",
+  "idioma": "pt-BR",
+  "ao_vivo": false,
+  "palavras_chave": ["infantil", "educativo", "animacao"],
+  "url_video": "/static/VID_20251214_092211335.mp4"
+}
+
+]
